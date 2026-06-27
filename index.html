@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preload" href="fonts/roboto-v30-cyrillic_latin-700.woff2" as="font">
+    <link rel="preload" href="fonts/roboto-v30-cyrillic_latin-regular.woff2" as="font">
+    <link rel="preload" href="fonts/TTFirsNeueBold.woff" as="font">
+    <link rel="preload" href="fonts/TTFirsNeueRegular.woff" as="font">
+    <link rel="preload" href="fonts/TTFirsNeueMedium.woff" as="font">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script defer="defer" src="main.js"></script>
+    <title>Заюшка-Знаюшка | Игровой кабинет раннего развития в&nbsp;Красногорске</title>
+</head>
+
+<body>
+
+    <header class="header section">
+        <div class="container">
+            <div class="header__grid">
+                <nav class="header__menu">
+                    <ul class="header__menu-list list-reset">
+                        <li class="header__menu-item"><a href="#about" class="header__nav-link">О&nbsp;нас</a></li>
+                        <li class="header__menu-item"><a href="#program" class="header__nav-link">Программы развития</a>
+                        </li>
+                        <li class="header__menu-item"><a href="#room" class="header__nav-link">Оборудование</a></li>
+                        <li class="header__menu-item"><a href="#feedback" class="header__nav-link">Отзывы</a></li>
+                        <li class="header__menu-item"><a href="#contact" class="header__nav-link">Контакты</a></li>
+                        <li class="header__nav-item"><a href="tel:+79059476400"
+                                class="contakt__span">+7&nbsp;905&nbsp;947&#8209;64&#8209;00</a></li>
+                    </ul>
+                    <button class="btn-reset header__btn" aria-label="Закрыть меню">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                        </svg>
+                    </button>
+                </nav>
+
+                <a href="#" class="header__logo">
+                    <picture><img class="header__img" src="image/logo.png" alt="Логотип Заюшка-Знаюшка"></picture>
+                </a>
+
+                <ul class="header__nav">
+                    <li class="header__nav-item"><a href="#about" class="header__nav-link">О&nbsp;нас</a></li>
+                    <li class="header__nav-item"><a href="#program" class="header__nav-link">Программы развития</a></li>
+                    <li class="header__nav-item"><a href="#room" class="header__nav-link">Оборудование</a></li>
+                    <li class="header__nav-item"><a href="#feedback" class="header__nav-link">Отзывы</a></li>
+                    <li class="header__nav-item"><a href="#contact" class="header__nav-link">Контакты</a></li>
+                </ul>
+
+                <div class="header__burger">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" version="1.1">
+                        <g id="g8938">
+                            <rect
+                                style="fill:none;stroke:#ffffff;stroke-width:2.57851;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                                width="37.399136" height="37.347374" x="1.3333731" y="1.3851378" ry="5.9755793" />
+                            <g id="g6782" transform="translate(4.8658823,1.2423529)" style="fill:#ffffff">
+                                <rect style="fill:#ffffff;stroke:none;stroke-width:0" width="24.720041"
+                                    height="4.3482308" x="2.83761" y="16.804707" ry="2.1741154" />
+                                <rect style="fill:#ffffff;stroke:none;stroke-width:0" width="24.720041"
+                                    height="4.3482308" x="2.8070376" y="8.8517666" ry="2.1741154" />
+                                <rect style="fill:#ffffff;stroke:none;stroke-width:0" width="24.720041"
+                                    height="4.3482308" x="2.7552731" y="24.795296" ry="2.1741154" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="header__block">
+                    <a href="tel:+79059476300" class="header__block-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path
+                                d="M18.3425 14.0983C17.215 14.0983 16.1242 13.915 15.1067 13.585C14.7858 13.475 14.4283 13.5575 14.1808 13.805L12.7417 15.6108C10.1475 14.3733 7.71833 12.0358 6.42583 9.35L8.21333 7.82833C8.46083 7.57167 8.53417 7.21417 8.43333 6.89333C8.09417 5.87583 7.92 4.785 7.92 3.6575C7.92 3.1625 7.5075 2.75 7.0125 2.75H3.84083C3.34583 2.75 2.75 2.97 2.75 3.6575C2.75 12.1733 9.83583 19.25 18.3425 19.25C18.9933 19.25 19.25 18.6725 19.25 18.1683V15.0058C19.25 14.5108 18.8375 14.0983 18.3425 14.0983Z"
+                                fill="currentcolor" />
+                        </svg>
+                        +7&nbsp;905&nbsp;947&nbsp;6300
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="banner section">
+            <div class="container">
+                <div class="banner__block">
+                    <h1 class="banner__title title">Развитие ребенка от&nbsp;ползунков до&nbsp;школы</h1>
+                    <p class="banner__text">Индивидуальные развивающие занятия для&nbsp;детей от&nbsp;10&nbsp;месяцев
+                        до&nbsp;7&nbsp;лет в&nbsp;Красногорске.</p>
+                    <h3 class="banner__subtitle">Попробовать первое
+                        занятие можно всего&nbsp;за&nbsp;1500&nbsp;руб.</h3>
+                    <a href="#modal" class="banner__btn btn btn-reset btnfull"
+                        style="display:inline-block; text-align:center;">Записаться</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about__grid">
+                    <div class="about__block">
+                        <h2 class="about__title title">О&nbsp;нас</h2>
+                        <p class="about__text text">Приветствуем вас в игровом кабинете раннего развития «Заюшка
+                            Знаюшка»! Мы&nbsp;бережно помогаем малышам от&nbsp;10&nbsp;месяцев и&nbsp;дошкольникам
+                            до&nbsp;7&nbsp;лет адаптироваться к&nbsp;миру, развивать ключевые навыки и&nbsp;раскрывать
+                            свой&nbsp;потенциал.</p>
+                        <p class="about__text text">Все занятия проводятся исключительно <strong>индивидуально</strong>.
+                            Благодаря этому программа выстраивается под&nbsp;уникальный темп вашего ребёнка —
+                            в&nbsp;игровой
+                            форме, с&nbsp;искренним интересом и&nbsp;максимальным вниманием к&nbsp;его особенностям.</p>
+                        <p class="about__text text">Мы <strong>начинаем с диагностики</strong>, потому&nbsp;что
+                            для&nbsp;нас важно
+                            не&nbsp;просто занять ребенка, а&nbsp;увидеть его&nbsp;целиком: как&nbsp;он&nbsp;мыслит,
+                            запоминает, двигается и&nbsp;воспринимает мир. Ищем «ключик» к вашему малышу, опираясь
+                            на&nbsp;данные первичной встречи.
+                            Наш&nbsp;педагог выстраивает траекторию, которая мягко «подтягивает» слабые стороны
+                            и&nbsp;превращает
+                            сильные в&nbsp;фундамент для&nbsp;будущей учебы.</p>
+                        <p class="about__text text">Наш центр помогает мягко освободить время для мам и&nbsp;пап, пока
+                            дети
+                            увлечены полезной игрой. у&nbsp;вас появляется то&nbsp;самое драгоценное
+                            время&nbsp;для&nbsp;себя.</p>
+
+                        <p class="about__subtitle subtitle" style="margin-top: 30px;">Остались вопросы?</p>
+                        <h3 class="about__title-small">Закажите обратный звонок</h3>
+
+                        <form class="about__form form">
+                            <input class="about__input input" type="text" placeholder="Ваше имя" required>
+                            <input class="about__input input" type="tel" placeholder="Номер телефона" required>
+                            <input class="about__input input" type="text" placeholder="Возраст ребенка или ваш вопрос"
+                                required>
+                            <button class="btn btn-reset btnCall" type="submit" aria-label="Заказать звонок">Перезвоните
+                                мне</button>
+                        </form>
+                    </div>
+                    <video class="about__img" controls poster="image/video-poster.jpg">
+                        <source src="image/about.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="teachers section" id="teachers">
+            <div class="container">
+                <h2 class="teachers__title title">Кто ведет занятия?</h2>
+                <p class="teachers__subtitle text">Наши педагоги — это&nbsp;не&nbsp;просто специалисты с&nbsp;дипломами.
+                    Это любящие
+                    свое дело профессионалы, которые находят ключик к&nbsp;сердцу каждого ребенка. Узнайте
+                    их&nbsp;поближе!</p>
+
+                <div class="teachers__grid">
+
+                    <div class="teachers__card">
+                        <div class="teachers__card-image-wrapper">
+                            <img class="teachers__card-image" src="image/Nadejda.jpg" alt="Педагог Надежда Руцинская"
+                                loading="lazy">
+                        </div>
+                        <div class="teachers__card-content">
+                            <h3 class="teachers__card-name">Руцинская Надежда</h3>
+                            <p class="teachers__card-role">Педагог раннего развития</p>
+
+                            <div class="teachers__card-education">
+                                <h4>Образование:</h4>
+                                <ul class="list-reset">
+                                    <li>Высшее по&nbsp;специальности «Социально-культурная деятельность»</li>
+                                    <li>Профпереподготовка: «Теория и&nbsp;методика дошкольного образования»</li>
+                                </ul>
+                            </div>
+
+                            <div class="teachers__card-courses">
+                                <h4>Постоянно учусь новому. Ключевые курсы:</h4>
+                                <ul class="list-reset teachers__card-list">
+                                    <li>«Я учусь играть» (Елена Куликова)</li>
+                                    <li>«Слуховое восприятие, понимание речи, речь» (сурдопедагоги Мельникова Л.
+                                        и&nbsp;Сухова О.)
+                                    </li>
+                                    <li>«Учим ребенка читать» (Олеся Жукова)</li>
+                                    <li>«Обучение чтению и&nbsp;развитие интеллекта» (Brain Space)</li>
+                                    <li>«Запуск речи», «Грамматика для&nbsp;малышей» (Мария Иванова)</li>
+                                    <li>«Развитие эмоционального интеллекта у&nbsp;детей» (Анна Николаева)</li>
+                                </ul>
+                            </div>
+
+                            <div class="teachers__card-quote">
+                                <blockquote>«Моя суперспособность — понимать детей, "ловить их&nbsp;волну", укрепляя
+                                    доверие.
+                                    Это&nbsp;помогает вместе добиваться желаемых результатов!»</blockquote>
+                            </div>
+
+                            <div class="teachers__card-skills">
+                                <span class="teachers__card-skill-tag">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM13 7H11V13H17V11H13V7Z"
+                                            fill="currentColor" />
+                                        <path d="M11 15H13V17H11V15Z" fill="currentColor" />
+                                    </svg>
+                                    Игровая терапия
+                                </span>
+                                <span class="teachers__card-skill-tag">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M21 6H19V4C19 2.9 18.1 2 17 2H7C5.9 2 5 2.9 5 4V6H3C1.9 6 1 6.9 1 8V20C1 21.1 1.9 22 3 22H21C22.1 22 23 21.1 23 20V8C23 6.9 22.1 6 21 6ZM7 4H17V6H7V4ZM21 20H3V8H21V20ZM12 10C9.79 10 8 11.79 8 14C8 16.21 9.79 18 12 18C14.21 18 16 16.21 16 14C16 11.79 14.21 10 12 10ZM12 16C10.9 16 10 15.1 10 14C10 12.9 10.9 12 12 12C13.1 12 14 12.9 14 14C14 15.1 13.1 16 12 16Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    Запуск речи
+                                </span>
+                                <span class="teachers__card-skill-tag">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    Развитие интеллекта
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="teachers__card">
+                        <div class="teachers__card-image-wrapper">
+                            <img class="teachers__card-image" src="image/natalia.jpg" alt="Педагог Наталья Хабибулина"
+                                loading="lazy">
+                        </div>
+                        <div class="teachers__card-content">
+                            <h3 class="teachers__card-name">Хабибулина Наталья</h3>
+                            <p class="teachers__card-role">Педагог раннего развития</p>
+
+                            <div class="teachers__card-education">
+                                <h4>Образование:</h4>
+                                <ul class="list-reset">
+                                    <li>РГПУ им.&nbsp;А.&nbsp;И.&nbsp;Герцена, «Учитель начальных классов»</li>
+                                </ul>
+                            </div>
+
+                            <div class="teachers__card-courses">
+                                <h4>Постоянно повышаю квалификацию:</h4>
+                                <ul class="list-reset teachers__card-list">
+                                    <li>«Я&nbsp;учусь играть» (Елена Куликова)</li>
+                                    <li>«Я&nbsp;учусь играть» (Елена Куликова)</li>
+                                    <li>«Запуск речи от&nbsp;1&nbsp;до&nbsp;7&nbsp;лет» (Ринат Каримов)</li>
+                                    <li>«Обучение грамоте. Нейроподход» (Олеся Тарасова)</li>
+                                    <li>«Обучение математике. Нейроподход» (Олеся Тарасова)</li>
+                                    <li>«Учим ребёнка читать» (Олеся Жукова)</li>
+                                    <li>«Подготовка к&nbsp;школе. Нейропсихологический подход»</li>
+                                    <li>«Основы интеллекта. Сон. Речь. Иностранные языки» (Валентина Паевская)</li>
+                                </ul>
+                            </div>
+
+                            <div class="teachers__card-quote">
+                                <blockquote>«Моя движущая сила — это&nbsp;дети, их&nbsp;радость от&nbsp;собственных
+                                    достижений! С
+                                    малышами играю нежно и&nbsp;бережно, а&nbsp;с&nbsp;теми, кто&nbsp;постарше,
+                                    осваиваем счет, письмо и&nbsp;чтение через квесты».</blockquote>
+                            </div>
+
+                            <div class="teachers__card-skills">
+                                <span class="teachers__card-skill-tag">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM13 7H11V13H17V11H13V7Z"
+                                            fill="currentColor" />
+                                        <path d="M11 15H13V17H11V15Z" fill="currentColor" />
+                                    </svg>
+                                    Игровые методики
+                                </span>
+                                <span class="teachers__card-skill-tag">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    Нейроподход
+                                </span>
+                                <span class="teachers__card-skill-tag">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3ZM5 19H19V5H5V19ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H14V17H7V15Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    Подготовка к&nbsp;школе
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teachers__cta">
+                    <p class="text" style="text-align: center;">Познакомьтесь с&nbsp;нашими педагогами лично
+                        на&nbsp;первом
+                        занятии!</p>
+                    <a href="#modal" class="btn btn-reset btnfull teachers__cta-btn">Записаться на&nbsp;пробное
+                        занятие</a>
+                </div>
+            </div>
+        </section>
+        <section class="program section" id="program">
+            <div class="container">
+                <h2 class="program__title title">Наши программы</h2>
+                <div class="program__grid">
+                    <div class="program__block">
+                        <div>
+                            <h3 class="subtitle">Раннее развитие</h3>
+                            <p class="program__subtitle subtitle" style="font-size: 18px; color: var(--choko);">
+                                Для&nbsp;детей от 10&nbsp;месяцев до&nbsp;2&nbsp;лет</p>
+                            <p class="program__text text">Занятия направлены на&nbsp;запуск речи, развитие мелкой
+                                и&nbsp;крупной
+                                моторики, координацию движений и&nbsp;звукоподражание. Через спортивные
+                                и&nbsp;музыкальные игры мы&nbsp;учим малыша взаимодействовать с&nbsp;педагогом, делать
+                                первые шаги в&nbsp;социализации и&nbsp;уверенно
+                                познавать окружающий мир.</p>
+                            <span class="program__text text">В&nbsp;игре развиваем:</span>
+                            <ul class="program__list text" style="padding-left: 20px; margin-bottom: 20px;">
+                                <li>логику</li>
+                                <li>внимание и&nbsp;память</li>
+                                <li>мышление</li>
+                            </ul>
+
+
+                        </div>
+                        <a href="#modal" class="program__btn btn btn-reset btnfull" style="text-align:center;"
+                            id="rano">Записаться</a>
+                    </div>
+
+                    <div class="program__block">
+                        <div>
+                            <h3 class="subtitle">Развитие речи и&nbsp;интеллекта</h3>
+                            <p class="program__subtitle subtitle" style="font-size: 18px; color: var(--choko);">Для
+                                детей от&nbsp;2&nbsp;до&nbsp;7&nbsp;лет</p>
+                            <p class="program__text text">Профессиональная коррекция и предупреждение речевых нарушений
+                                у&nbsp;детей дошкольного возраста. В&nbsp;программу входит:</p>
+                            <ul class="program__list text" style="padding-left: 20px; margin-bottom: 20px;">
+                                <li class="program__item">Сенсорное и&nbsp;сенсомоторное развитие</li>
+                                <li class="program__item">Формирование представлений о&nbsp;предметах, логики
+                                    и&nbsp;пространственного мышления</li>
+                                <li class="program__item">Обогащение активного словарного запаса и&nbsp;развитие связной
+                                    речи
+                                </li>
+                                <li class="program__item">Комплексная подготовка к&nbsp;школе</li>
+                            </ul>
+                        </div>
+                        <a href="#modal" class="program__btn btn btn-reset btnfull" style="text-align:center;"
+                            id="rech">Записаться</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="room section" id="room">
+            <div class="room__wrapper">
+                <div class="container">
+                    <h2 class="room__title title">Наш развивающий кабинет</h2>
+                    <p class="room__text text" style="margin-bottom: 30px;">Мы создали безопасное, идеально чистое
+                        и&nbsp;уютное
+                        пространство. Используем сертифицированные методические материалы, экологичные развивающие
+                        игрушки и&nbsp;профессиональное оборудование для&nbsp;эффективных занятий.</p>
+                </div>
+
+                <div class="room__block">
+                    <div class="swiper-container room__slider">
+                        <div class="swiper-wrapper room__slider-wrapper">
+                            <div class="swiper-slide">
+                                <div class="room__img"><img src="image/2.jpg" alt="Интерьер кабинета Заюшка-Знаюшка">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="room__img"><img src="image/1.jpg" alt="Развивающие игрушки Монтессори">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="room__img"><img src="image/3.jpg" alt="Зона для индивидуальных занятий">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="room__img"><img src="image/4.jpg" alt="Оборудование для развития моторики">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="room__img"><img src="image/5.jpg" alt="Материалы для коррекции речи"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="room__img"><img src="image/6.jpg" alt="Игровые развивающие зоны"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback section" id="feedback">
+            <div class="container">
+                <h2 class="feedback__title-main title">Отзывы родителей</h2>
+                <div class="feedback__grid">
+                    <div class="feedback__block">
+                        <div class="feedback__img three"></div>
+                        <h3 class="feedback__title subtitle">Кристина</h3>
+                        <p class="text">Прекрасный центр! Занимались с педагогом Надеждой, очень чуткий
+                            и&nbsp;внимательный
+                            специалист. Малыш быстро привык и&nbsp;адаптировался, спокойно отпускал родителей
+                            и&nbsp;начал
+                            называть педагога по&nbsp;имени, вспоминал дома и&nbsp;всегда с&nbsp;улыбкой ехал
+                            на&nbsp;занятия. Начали
+                            заниматься в&nbsp;1,5&nbsp;года. Надежда и&nbsp;сама всегда оставляла комментарии, давала
+                            рекомендации для&nbsp;занятий дома и&nbsp;подробно рассказывала, что&nbsp;сейчас актуально
+                            для&nbsp;ребенка.</p>
+                    </div>
+                    <div class="feedback__block">
+                        <div class="feedback__img two"></div>
+                        <h3 class="feedback__title subtitle">Карина Климова</h3>
+                        <p class="text">Очень нравится данная студия. Сын занимался с педагогом-Натальей, очень
+                            грамотный специалист, легко нашла подход к малышу, помогла нам разговориться и&nbsp;вообще
+                            привить любовь к&nbsp;занятиям. Ребенок (2 года) не&nbsp;хотел уходить с&nbsp;занятий! Также
+                            были на&nbsp;занятии у Надежды, очень опытный специалист, сразу определила сильные
+                            и&nbsp;слабые стороны
+                            ребенка, дала обратную связь с&nbsp;чем лучше поработать. В&nbsp;кабинете всегда идеально
+                            чисто и&nbsp;уютно. От&nbsp;всей души могу рекомендовать!</p>
+                    </div>
+                    <div class="feedback__block">
+                        <div class="feedback__img one"></div>
+                        <h3 class="feedback__title subtitle">Альбина</h3>
+                        <p class="text">К&nbsp;Надежде с&nbsp;сыном ходим уже больше года, ребенок с&nbsp;первого
+                            посещения был в&nbsp;восторге от&nbsp;занятий в&nbsp;игровой форме. Уже после нескольких
+                            недель был замечен прорыв в&nbsp;развитии. Всегда новые увлекательные игры, развивающие
+                            игрушки, изготовление разных поделок.
+                            Надежда замечательный педагог с&nbsp;индивидуальным подходом к&nbsp;малышам. Мой просто
+                            влюблен в&nbsp;нее,
+                            всегда рвётся на&nbsp;занятия, а&nbsp;после долгих разлук в виде отпусков, бросается
+                            в&nbsp;объятия Очень
+                            рады, что&nbsp;когда&nbsp;то нашли этот центр</p>
+                    </div>
+                    <div class="feedback__block feedback__hide">
+                        <div class="feedback__img three"></div>
+                        <h3 class="feedback__title subtitle">Вера Н.</h3>
+                        <p class="text">Мы ходим к&nbsp;Надежде уже&nbsp;почти 2&nbsp;года. Считаю это самое лучшее
+                            решение для&nbsp;любого
+                            ребёнка! Прекрасный индивидуальный подход, в&nbsp;котором работают с&nbsp;каждым ребёнком
+                            индивидуально, учитывая его&nbsp;особенности характера и&nbsp;возможностей. Прекрасный
+                            центр, всё
+                            очень уютно. Ребёнок в&nbsp;восторге, родители тоже. Всем советуем этот центр</p>
+                    </div>
+                </div>
+                <p class="feedback__text" style="text-align: center; margin-top: 30px;">
+                    Больше живых отзывов от&nbsp;наших клиентов смотрите на <a
+                        href="https://yandex.ru/maps/org/zayushka_znayushka/56833937409/?ll=37.369117%2C55.825613&z=16"
+                        target="_blank" class="feedback__link">Яндекс.Картах</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="contakt section" id="contact">
+            <div class="container">
+                <h2 class="contakt__title title">Контакты и&nbsp;локация</h2>
+            </div>
+            <div class="contakt__map-wrapper">
+                <div class="contakt__map">
+                    <script type="text/javascript" charset="utf-8" async
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6e59a2e495f473c7b57034c4fcb64af25678945819e1ecc2b4d087c55c7e59e3&amp;width=1280&amp;height=447&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+                <div class="contakt__block">
+                    <div class="contakt__decsription">
+                        <h3 class="contakt__title-description">Заюшка-Знаюшка</h3>
+                        <p class="contakt__text-decsription text">ул.&nbsp;Спасская, д.&nbsp;4,&nbsp;г.&nbsp;Красногорск
+                        </p>
+                        <a href="tel:+79059476400" class="contakt__span"
+                            style="display: block; text-decoration: none;">+7&nbsp;905&nbsp;947&#8209;64&#8209;00</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal section" id="modal">
+            <div class="modal__block">
+                <h2 class="modal__title title">Запись на&nbsp;занятие</h2>
+                <p class="modal__text text">Заполните форму, и &nbsp;мы&nbsp;свяжемся с&nbsp;вами для подбора
+                    удобного времени индивидуального занятия.</p>
+
+                <form class="modal__form form">
+                    <input class="modal__input input" type="text" placeholder="Имя родителя" required>
+                    <input class="modal__input input" type="tel" placeholder="Номер телефона для связи*" required>
+                    <input class="modal__input input" type="text" placeholder="Возраст ребенка (например, 1.5 года)">
+                    <textarea class="modal__input input" placeholder="Ваши пожелания или вопросы"
+                        style="min-height: 80px; font-family: inherit;"></textarea>
+                    <button class="btn btn-reset btnfull" type="submit" aria-label="Отправить заявку">Отправить
+                        заявку</button>
+                </form>
+
+                <button class="btn-reset modal__btn" aria-label="Закрыть окно">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer section">
+        <div class="container">
+            <div class="footer__grid">
+                <a class="footer__logo" href="#">
+                    <picture><img class="footer__img" src="image/logo-f.png" alt="Логотип"></picture>
+                    <h4 class="footer__logo-description">Кабинет раннего развития</h4>
+                </a>
+                <p class="footer__description">Помогаем вашему ребенку провести время не&nbsp;только весело,
+                    но&nbsp;и&nbsp;с&nbsp;максимальной пользой для&nbsp;интеллекта и&nbsp;речи!</p>
+                <div class="footer__media">
+                    <p class="footer__span">Больше интересного:</p>
+                    <ul class="footer__list list-reset">
+                        <li class="footer__item">
+                            <a class="footer__icon" href="t.me/zauhska" aria-label="Мы в Telegram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="footer__item">
+                            <a class="footer__icon" href="https://vk.com/club229477546" aria-label="Мы ВКонтакте">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15 0C6.71601 0 0 6.7157 0 15C0 23.2843 6.71601 30 15 30C23.284 30 30 23.2843 30 15C30 6.7157 23.284 0 15 0ZM22.6088 16.6223C23.3079 17.3052 24.0476 17.9478 24.6752 18.7013C24.9533 19.0346 25.2154 19.3792 25.4148 19.7669C25.6996 20.3196 25.4425 20.9257 24.9477 20.9586L21.8747 20.958 21.081 21.0236 20.4494 20.7035 19.9169 20.1609C19.4919 19.7285 19.0975 19.2666 18.6881 18.8194C18.5208 18.6359 18.3447 18.4631 18.1347 18.3272C17.7158 18.0546 17.3518 18.1381 17.1118 18.5758C16.8672 19.0211 16.8114 19.5146 16.788 20.0102C16.7546 20.7348 16.5361 20.9242 15.809 20.9583C14.2555 21.031 12.7814 20.7953 11.4114 20.0121C10.2028 19.3212 9.26732 18.3462 8.45218 17.2423C6.86486 15.0902 5.64921 12.7283 4.55693 10.2985C4.3111 9.7513 4.49095 9.45852 5.09463 9.44716C6.0976 9.42783 7.10056 9.43028 8.10353 9.44624C8.51172 9.45268 8.78179 9.68624 8.93862 10.0714C9.48062 11.4049 10.1451 12.6737 10.9777 13.8503C11.1996 14.1637 11.4261 14.4761 11.7486 14.6974C12.1047 14.9417 12.376 14.861 12.5438 14.4635C12.6513 14.2109 12.6976 13.9409 12.7209 13.6702C12.8007 12.743 12.8102 11.8162 12.6721 10.8927C12.5862 10.3148 12.2612 9.94158 11.6851 9.83233C11.3917 9.77678 11.4347 9.66813 11.5774 9.50056C11.8251 9.21084 12.0571 9.03161 12.5208 9.03161L15.9928 9.031C16.5401 9.13841 16.6628 9.38394 16.7371 9.93514L16.7402 13.7936C16.7337 14.0069 16.8473 14.6391 17.2303 14.7787C17.5372 14.88 17.7398 14.6339 17.9233 14.4396C18.7559 13.556 19.3492 12.5131 19.8804 11.4338C20.1149 10.9577 20.3171 10.4652 20.5136 9.97166C20.6596 9.60675 20.8868 9.42721 21.2986 9.43335L24.6421 9.43734C24.7406 9.43734 24.8406 9.43826 24.9382 9.45514C25.5017 9.55151 25.6561 9.79396 25.4817 10.3436C25.2074 11.2073 24.6743 11.9266 24.1532 12.6479C23.5946 13.4201 22.9989 14.1652 22.4458 14.9408C21.9376 15.6497 21.9778 16.0066 22.6088 16.6223Z"
+                                        fill="currentcolor" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+
+</html>
