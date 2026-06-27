@@ -225,7 +225,7 @@ svg {
 .header__grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 128px 40px 60px;
+    grid-template-rows: 128px 40px 80px;
     justify-items: center;
 }
 
@@ -478,7 +478,7 @@ svg {
     display: flex;
     flex-direction: column;
     padding: 24px;
-    margin: 16px 0;
+    margin: 48px 0;
     max-width: 320px;
     min-height: 400px;
     justify-content: space-between;
