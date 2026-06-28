@@ -887,7 +887,7 @@ svg {
 .room__slider .swiper-slide-next {
     transform: scale(0.95) rotateY(2deg);
     opacity: 0.9;
-    filter: blur(1px);
+    filter: blur(3px);
 }
 
 .room__slider .swiper-slide-duplicate-prev,
@@ -1543,5 +1543,326 @@ svg {
     .teachers__card-skill-tag svg {
         width: 20px;
         height: 20px;
+    }
+}
+
+/* ============================================
+   17. КАСТОМНЫЕ СТРЕЛКИ ДЛЯ ГАЛЕРЕИ (ВИДИМЫЕ ВСЕГДА)
+   ============================================ */
+.room__slider {
+    position: relative;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--choko);
+    border: 2px solid rgba(97, 50, 29, 0.15);
+}
+
+.gallery-nav:hover {
+    background: var(--choko);
+    box-shadow: 0 4px 25px rgba(97, 50, 29, 0.3);
+    color: #fff;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.gallery-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.gallery-nav svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+}
+
+.custom-swiper-button-prev {
+    left: 12px;
+}
+
+.custom-swiper-button-next {
+    right: 12px;
+}
+
+/* ===== АДАПТИВ СТРЕЛОК ===== */
+@media (max-width: 768px) {
+    .gallery-nav {
+        width: 38px;
+        height: 38px;
+    }
+
+    .gallery-nav svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .custom-swiper-button-prev {
+        left: 8px;
+    }
+
+    .custom-swiper-button-next {
+        right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-nav {
+        width: 32px;
+        height: 32px;
+    }
+
+    .gallery-nav svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .custom-swiper-button-prev {
+        left: 4px;
+    }
+
+    .custom-swiper-button-next {
+        right: 4px;
+    }
+}
+
+/* ============================================
+   18. LIGHTBOX ДЛЯ ГАЛЕРЕИ
+   ============================================ */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: background-color 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+.lightbox-overlay.active {
+    background-color: rgba(0, 0, 0, 0.88);
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    padding: 0;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg);
+}
+
+.lightbox-close svg {
+    width: 24px;
+    height: 24px;
+}
+
+.lightbox-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 60px 20px;
+    gap: 12px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lightbox-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 85vh;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--border-radius);
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.lightbox-overlay.active .lightbox-image {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.lightbox-nav {
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+}
+
+.lightbox-nav:active {
+    transform: scale(0.95);
+}
+
+.lightbox-nav svg {
+    width: 32px;
+    height: 32px;
+    stroke: #fff;
+}
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px 18px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+/* ===== АДАПТИВ LIGHTBOX ===== */
+@media (max-width: 768px) {
+    .lightbox-content {
+        padding: 40px 12px;
+        gap: 8px;
+    }
+
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-nav svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .lightbox-close {
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-close svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lightbox-image-wrapper {
+        max-height: 70vh;
+    }
+
+    .lightbox-image {
+        max-height: 70vh;
+    }
+
+    .lightbox-counter {
+        bottom: 18px;
+        font-size: 12px;
+        padding: 4px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-content {
+        padding: 30px 8px;
+        gap: 4px;
+    }
+
+    .lightbox-nav {
+        width: 32px;
+        height: 32px;
+    }
+
+    .lightbox-nav svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .lightbox-close svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .lightbox-image-wrapper {
+        max-height: 60vh;
+    }
+
+    .lightbox-image {
+        max-height: 60vh;
     }
 }

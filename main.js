@@ -261,3 +261,237 @@ animateElements.forEach(el => {
 });
 
 console.log('✅ Сайт полностью готов!');
+
+// ============================================
+// 9. LIGHTBOX ДЛЯ ГАЛЕРЕИ (Увеличение фото)
+// ============================================
+(function initLightbox() {
+    // Создаем структуру оверлея
+    const lightboxOverlay = document.createElement('div');
+    lightboxOverlay.className = 'lightbox-overlay';
+    lightboxOverlay.innerHTML = `
+        <button class="lightbox-close" aria-label="Закрыть фото">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <button class="lightbox-nav lightbox-prev" aria-label="Предыдущее фото">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+            <div class="lightbox-image-wrapper">
+                <img src="" alt="Увеличенное фото" class="lightbox-image">
+            </div>
+            <button class="lightbox-nav lightbox-next" aria-label="Следующее фото">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </button>
+        </div>
+        <div class="lightbox-counter"></div>
+    `;
+    document.body.appendChild(lightboxOverlay);
+
+    // Получаем элементы
+    const overlay = lightboxOverlay;
+    const lightboxImg = overlay.querySelector('.lightbox-image');
+    const closeBtn = overlay.querySelector('.lightbox-close');
+    const prevBtn = overlay.querySelector('.lightbox-prev');
+    const nextBtn = overlay.querySelector('.lightbox-next');
+    const counter = overlay.querySelector('.lightbox-counter');
+
+    let currentSlides = [];      // Массив всех слайдов (DOM-элементы)
+    let currentIndex = 0;
+    let isOpen = false;
+
+    // Функция для сбора всех слайдов с изображениями
+    function collectSlides() {
+        const slides = document.querySelectorAll('.room__slider .swiper-slide');
+        currentSlides = [];
+        slides.forEach(slide => {
+            const img = slide.querySelector('.room__img img');
+            if (img) {
+                currentSlides.push({
+                    element: slide,
+                    img: img,
+                    src: img.getAttribute('src') || img.src
+                });
+            }
+        });
+    }
+
+    // Открыть лайтбокс по индексу
+    function openLightbox(index) {
+        if (!currentSlides.length) return;
+        if (index < 0) index = currentSlides.length - 1;
+        if (index >= currentSlides.length) index = 0;
+        currentIndex = index;
+
+        const slide = currentSlides[currentIndex];
+        lightboxImg.src = slide.src;
+        lightboxImg.alt = slide.img.alt || 'Увеличенное фото';
+
+        // Обновляем счетчик
+        counter.textContent = `${currentIndex + 1} / ${currentSlides.length}`;
+
+        // Показываем с анимацией
+        overlay.classList.add('active');
+        document.body.classList.add('stop-scroll');
+        isOpen = true;
+
+        // Управление видимостью стрелок
+        updateNavButtons();
+    }
+
+    // Закрыть лайтбокс
+    function closeLightbox() {
+        overlay.classList.remove('active');
+        document.body.classList.remove('stop-scroll');
+        isOpen = false;
+        // Сбрасываем src для экономии памяти
+        setTimeout(() => {
+            if (!isOpen) {
+                lightboxImg.src = '';
+            }
+        }, 400);
+    }
+
+    // Обновить состояние кнопок навигации
+    function updateNavButtons() {
+        if (currentSlides.length <= 1) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            return;
+        }
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+    }
+
+    // Переключение слайдов
+    function goToPrev() {
+        if (currentSlides.length <= 1) return;
+        openLightbox(currentIndex - 1);
+    }
+
+    function goToNext() {
+        if (currentSlides.length <= 1) return;
+        openLightbox(currentIndex + 1);
+    }
+
+    // Обработка кликов по изображениям в слайдере
+    function setupSlideListeners() {
+        // Собираем слайды при каждом открытии на случай динамического изменения
+        const slides = document.querySelectorAll('.room__slider .swiper-slide');
+        slides.forEach((slide, index) => {
+            // Удаляем старые обработчики, чтобы не плодить
+            slide.removeEventListener('click', slideClickHandler);
+            // Добавляем новый
+            slide.addEventListener('click', slideClickHandler);
+            // Сохраняем индекс для обработчика
+            slide.dataset.lightboxIndex = index;
+        });
+        // Обновляем коллекцию
+        collectSlides();
+    }
+
+    function slideClickHandler(e) {
+        // Игнорируем клики по кнопкам навигации внутри слайда
+        if (e.target.closest('.swiper-button-next') ||
+            e.target.closest('.swiper-button-prev') ||
+            e.target.closest('.swiper-pagination')) {
+            return;
+        }
+        const slide = this;
+        const index = parseInt(slide.dataset.lightboxIndex);
+        if (!isNaN(index) && currentSlides[index]) {
+            openLightbox(index);
+        }
+    }
+
+    // Обработчик клавиатуры
+    function handleKeydown(e) {
+        if (!isOpen) return;
+        if (e.key === 'Escape') {
+            closeLightbox();
+            e.preventDefault();
+        } else if (e.key === 'ArrowLeft') {
+            goToPrev();
+            e.preventDefault();
+        } else if (e.key === 'ArrowRight') {
+            goToNext();
+            e.preventDefault();
+        }
+    }
+
+    // Инициализация событий
+    function initEvents() {
+        // Закрытие
+        closeBtn.addEventListener('click', closeLightbox);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay || e.target.closest('.lightbox-content') === null) {
+                closeLightbox();
+            }
+        });
+
+        // Навигация
+        prevBtn.addEventListener('click', goToPrev);
+        nextBtn.addEventListener('click', goToNext);
+
+        // Клавиатура
+        document.addEventListener('keydown', handleKeydown);
+
+        // Свайпы на мобильных
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const wrapper = overlay.querySelector('.lightbox-image-wrapper');
+        wrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        wrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    goToNext();
+                } else {
+                    goToPrev();
+                }
+            }
+        }, { passive: true });
+
+        // Отслеживаем изменения в DOM (для случая, если слайды подгружаются динамически)
+        // Простой вариант — пересобирать при каждом обновлении слайдера
+        if (swiper) {
+            swiper.on('slideChange', () => {
+                // Небольшая задержка чтобы DOM обновился
+                setTimeout(setupSlideListeners, 100);
+            });
+            swiper.on('update', () => {
+                setTimeout(setupSlideListeners, 100);
+            });
+        }
+    }
+
+    // Запуск
+    collectSlides();
+    setupSlideListeners();
+    initEvents();
+
+    // Первоначальный сбор после загрузки
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(collectSlides, 300);
+        setTimeout(setupSlideListeners, 400);
+    });
+
+    // Экспортируем функции для использования в консоли при отладке
+    window.lightbox = {
+        open: openLightbox,
+        close: closeLightbox,
+        next: goToNext,
+        prev: goToPrev
+    };
+
+    console.log('✅ Lightbox для галереи инициализирован');
+})();
